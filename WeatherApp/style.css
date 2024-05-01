@@ -5,3 +5,18 @@
     box-sizing: border-box;
     font-family: Georgia, 'Times New Roman', Times, serif;
 }
+
+body{
+    background: #FCFCFB;
+}
+
+.card{
+    width: 90%;
+    max-width: 470px;
+    background: linear-gradient(135deg, #ADB8BC , #9D9CAE);
+    color: #fff;
+    margin: 100px auto 0;
+    border-radius: 20px; 
+    padding: 40px 35px;
+    text-align: center;
+}
