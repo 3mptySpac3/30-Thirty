@@ -1,7 +1,7 @@
 
 # 🚀 Repository of 30 Projects 🚀
 
-This repository is a collection of 30 diverse projects, each designed to expand my skills and enhance my understanding of various programming concepts. Through this journey, I am enjoying the process of learning and building, with each project tackling different challenges and technologies.
+This repository is a collection of 30 diverse projects, each designed to expand my skills and enhance my understanding of various programming concepts. 
 
 ---
 
