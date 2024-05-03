@@ -1,4 +1,3 @@
-
 *{
     margin: 0;
     padding: 0;
@@ -6,26 +5,36 @@
     font-family: 'poppins', sans-serif;
 }
 
-body{
+body {
     background: #FCFCFB;
+    display: flex;
+    align-items: center; /* Centers card vertically */
+    justify-content: center; /* Centers card horizontally */
+    min-height: 100vh; /* Full viewport height */
+    margin: 0 auto;
+    padding: 20px; /* Padding around the body to prevent card touching the edges */
 }
 
-.card{
+.card {
     width: 90%;
     max-width: 470px;
-    background: linear-gradient(135deg, #ADB8BC , #9D9CAE);
-    color: #fff;
-    margin: 100px auto 0;
-    border-radius: 20px; 
-    padding: 40px 35px;
+    background: linear-gradient(135deg, #ADB8BC, #9D9CAE);
+    color: #FCFCFB;
+    border: 1px solid #9D9CAE;
+    border-radius: 20px;
+    padding: 20px; /* Reduced padding */
     text-align: center;
+    box-shadow: rgba(0, 0, 0, 0.2) 0px 60px 40px -7px;
+    overflow: hidden; /* Ensures no internal content spills out */
 }
 
 .search{
     width: 100%;
     display: flex;
     align-items: center;
-    justify-content: space-between;
+    justify-content: center;
+    margin-left: 10px;
+
 }
 
 .search input{
@@ -35,28 +44,24 @@ body{
     color: #080806;
     padding: 10px 25px;
     height: 60px;
+    border: 1px solid #9D9CAE;
     border-radius: 16px;
     flex: 1;
     margin-right: 16px;
     font-size: 18px;
+    justify-content: center;
+    align-items: center;
 }
 
-.search button{
-    border: 0;
-    outline: 0;
-    background: #FCFCFB;
-    border-radius: 50%;
-    width: 60px;
-    height: 60px;
-    cursor: pointer;
+.search input:focus {
+    border-color: #666;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.2);
 }
 
-.search button img{
-    width: 30px;
-    height: 30px;
-}
+
 
 .weather-icon{
+    /* width: 50vw; */
     width: 170px;
     margin-top: 30px;
 }
