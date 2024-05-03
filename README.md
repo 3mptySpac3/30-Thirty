@@ -20,7 +20,7 @@ This repository serves as a personal challenge to develop and document thirty un
 
 ## 
 
-> 🔻*Click on the image below to view*
+> 🔻*Click on the image below to view gallery*
 >
 > [![30-Thirty](https://github.com/3mptySpac3/30-Thirty/blob/main/Thumbnail.jpg?raw=true)](https://3mptyspac3.github.io/30-Thirty/)
 
