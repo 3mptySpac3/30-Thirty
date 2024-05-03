@@ -1,6 +1,6 @@
 
 :root{
-  --main-bg-color: #F7FDF5;
+  --main-bg-color: #0B0C08;
 }
 
 @font-face {
@@ -23,7 +23,7 @@
 }
 
 a{
-  color: #191911;
+  color: #F1F1EA;
 }
 
 html, body{
@@ -50,7 +50,7 @@ html, body{
   position: relative;
   width: 100%;
   height: 2px;
-  background-color: #ffffff;
+  background-color: #F1F1EA;
   transition: 0.5s;
   transform-origin: center;
 }
@@ -72,7 +72,7 @@ html, body{
   width: 96%;
   z-index: 2;
   mix-blend-mode: difference;
-  color: #ffffff;
+  color: #F1F1EA;
   text-transform: uppercase;
 }
 
@@ -96,6 +96,7 @@ h1{
   overflow: hidden;
   transition: 0.5s;
   will-change: transform;
+  color: #F1F1EA;
 }
 
 .wrap h1, .wrap .img{
@@ -194,6 +195,9 @@ section{
   left: 2%;
   width: 40%;
   height: 90%;
+  border: #F1F1EA;
+  border-style: solid;
+  box-shadow: 0 2.8px 2.2px rgba(255, 255, 255, 0.034), 0 6.7px 5.3px rgba(255, 255, 255, 0.048), 0 12.5px 10px rgba(255, 255, 255, 0.06), 0 22.3px 17.9px rgba(255, 255, 255, 0.072), 0 41.8px 33.4px rgba(255, 255, 255, 0.086), 0 100px 80px rgba(255, 255, 255, 0.12)
 }
 
 .proj-info-1{
@@ -209,6 +213,9 @@ section{
   right: 2%;
   width: 30%;
   height: 70%;
+  border: #F1F1EA;
+  border-style: solid;
+  box-shadow: 0 2.8px 2.2px rgba(255, 255, 255, 0.034), 0 6.7px 5.3px rgba(255, 255, 255, 0.048), 0 12.5px 10px rgba(255, 255, 255, 0.06), 0 22.3px 17.9px rgba(255, 255, 255, 0.072), 0 41.8px 33.4px rgba(255, 255, 255, 0.086), 0 100px 80px rgba(255, 255, 255, 0.12)
 }
 
 .proj-info-2{
@@ -225,6 +232,9 @@ section{
   right: 2%;
   width: 20%;
   height: 80%;
+  border: #F1F1EA;
+  border-style: solid;
+  box-shadow: 0 2.8px 2.2px rgba(255, 255, 255, 0.034), 0 6.7px 5.3px rgba(255, 255, 255, 0.048), 0 12.5px 10px rgba(255, 255, 255, 0.06), 0 22.3px 17.9px rgba(255, 255, 255, 0.072), 0 41.8px 33.4px rgba(255, 255, 255, 0.086), 0 100px 80px rgba(255, 255, 255, 0.12)
 }
 
 .proj-info-3{
@@ -242,5 +252,23 @@ section{
   height: 100%;
   background-size: cover;
   background-position: center;
-  filter: grayscale(20%) sepia(20%)
+  filter: grayscale(20%) sepia(20%);
+  transition: transform 0.3s ease;
 }
+
+.img-section .wrap .img:hover {
+  transform: scale(0.95); 
+}
+
+.img-section .wrap .info-text-large:hover {
+  font-size: calc(larger + 10px); 
+  color: #CCCCA8; 
+}
+
+
+.info-text-large {
+  font-size: larger;
+  transition: font-size 0.3s ease; 
+  margin-bottom: 10px;
+}
+
