@@ -18,7 +18,11 @@ This repository is a collection of 30 diverse projects, each designed to expand 
 
 This repository serves as a personal challenge to develop and document thirty unique projects. It aims not only to showcase my skills but also to provide a platform for others to learn and collaborate.
 
----
+## 
+
+> 🔻*Click on the image below to view*
+>
+> [![30-Thirty](https://github.com/3mptySpac3/30-Thirty/blob/main/Thumbnail.jpg?raw=true)](https://3mptyspac3.github.io/30-Thirty/)
 
 ## 📁 Projects
 
