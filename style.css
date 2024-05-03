@@ -3,13 +3,23 @@
   --main-bg-color: #F7FDF5;
 }
 
+@font-face {
+  font-family: 'Light Stories';
+  src: url(./Light\ Stories.ttf);
+}
+
 *{
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: "Playfair Display", serif;
+  font-family: "Light Stories", serif;
   text-decoration: none;
   list-style: none;
+}
+
+::-webkit-scrollbar
+{
+  display: none;
 }
 
 a{
@@ -203,7 +213,7 @@ section{
 
 .proj-info-2{
   position: absolute;
-  left: 34%;
+  right: 34%;
   bottom: 10%;
   text-align: right;
 }
@@ -219,7 +229,7 @@ section{
 
 .proj-info-3{
   position: absolute;
-  left: 24%;
+  right: 24%;
   bottom: 10%;
   text-align: right;
 }
