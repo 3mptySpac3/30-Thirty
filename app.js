@@ -95,6 +95,8 @@ function toggleWrap(wrap, active){
 let target = 1;
 let reverse = false;
 
+document.addEventListener('click', () => reverse = !reverse )
+
 function scroll(){
   target = window.scrollY;
 
@@ -108,6 +110,12 @@ function scroll(){
     }
   }
 
+  if(reverse){
+    target --;
+  }else(
+    target ++
+  )
+  window.scrollTo(0, target);
   scrollable.style.transform = `translateY(-${target}px)`;
   requestAnimationFrame(scroll);
 }
