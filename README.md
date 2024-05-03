@@ -9,7 +9,7 @@ This repository is a collection of 30 diverse projects, each designed to expand 
 
 - [Introduction](#introduction)
 - [Projects](#projects)
-  - [Weather App *Project 1*](#weather-app)
+  - [Weather App *Project 1*](https://3mptyspac3.github.io/30-Thirty/)
 - [Installation](#installation)
 
 ---
@@ -22,14 +22,14 @@ This repository serves as a personal challenge to develop and document thirty un
 
 ## 📁 Projects
 
-### 🌦 (Weather App *Project 1*)(
+### 🌦 [Weather App *Project 1*](https://3mptyspac3.github.io/30-Thirty/)
 
 **Folder:** `weatherApp`
 
 🔗 A simple yet functional weather application that uses the [Open Weather API](https://openweathermap.org/) to accurately display weather conditions based on city names. This project focuses on API integration and data handling in a user-friendly interface.
 
-`Demo`
 🎥 
+`["Demo"]`
 
 > 📝 **TODO:** Add more projects here as they are created
 
