@@ -1,0 +1,6 @@
+This favicon was generated using the following font:
+
+- Font Title: Noto Sans Ol Chiki
+- Font Author: Copyright 2022 The Noto Project Authors (https://github.com/notofonts/ol-chiki)
+- Font Source: https://fonts.gstatic.com/s/notosansolchiki/v29/N0b92TJNOPt-eHmFZCdQbrL32r-4CvhzDzRwlxOQYuVALWk267I6gVrz5gQ.ttf
+- Font License: SIL Open Font License, 1.1 (http://scripts.sil.org/OFL))

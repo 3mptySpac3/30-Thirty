@@ -5,7 +5,7 @@
 
 @font-face {
   font-family: 'Light Stories';
-  src: url(./Light\ Stories.ttf);
+  src: url(./fonts/Light\ Stories.ttf);
 }
 
 *{
@@ -146,6 +146,10 @@ h1{
   overflow: hidden;
 }
 
+.menu-wrap :hover{
+  color: #628BA3; 
+}
+
 .menu-wrap a{
   display: block;
   font-size: 40px;
@@ -262,7 +266,7 @@ section{
 
 .img-section .wrap .info-text-large:hover {
   font-size: calc(larger + 10px); 
-  color: #CCCCA8; 
+  color: #628BA3; 
 }
 
 
