@@ -13,6 +13,7 @@ body {
     min-height: 100vh; /* Full viewport height */
     margin: 0 auto;
     padding: 20px; /* Padding around the body to prevent card touching the edges */
+    overflow: hidden; /* Ensures no internal content spills out */
 }
 
 .card {
@@ -24,7 +25,7 @@ body {
     border-radius: 20px;
     padding: 20px; /* Reduced padding */
     text-align: center;
-    box-shadow: rgba(0, 0, 0, 0.2) 0px 60px 40px -7px;
+    box-shadow: rgba(0, 0, 0, 0.4) 0px 30px 90px;
     overflow: hidden; /* Ensures no internal content spills out */
 }
 
