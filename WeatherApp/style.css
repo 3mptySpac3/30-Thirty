@@ -100,3 +100,34 @@ body {
     font-size: 28px;
     margin-top: -6px;
 }
+
+@media (max-width: 600px) {
+    .weather h1 {
+        font-size: 10vw;
+    }
+
+    .weather h2 {
+        font-size: 6vw;
+        margin-top: 5px;
+    }
+
+    .humidity, .wind {
+        font-size: 4vw;
+    }
+
+    .details {
+        flex-direction: row;
+        align-items: flex-start;
+        padding-left: 2vw;
+        padding-right: 2vw;
+    }
+
+    .col {
+        margin-bottom: 10px;
+    }
+
+    .col img {
+        width: 25px;
+    }
+
+}
