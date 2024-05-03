@@ -22,11 +22,14 @@ This repository serves as a personal challenge to develop and document thirty un
 
 ## 📁 Projects
 
-### 🌦 Weather App *Project 1*
+### 🌦 (Weather App *Project 1*)(
 
-**Folder:** `weather-app`
+**Folder:** `weatherApp`
 
 🔗 A simple yet functional weather application that uses the [Open Weather API](https://openweathermap.org/) to accurately display weather conditions based on city names. This project focuses on API integration and data handling in a user-friendly interface.
+
+`Demo`
+🎥 
 
 > 📝 **TODO:** Add more projects here as they are created
 
