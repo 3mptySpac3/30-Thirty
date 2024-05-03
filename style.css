@@ -1,0 +1,78 @@
+
+:root{
+  --main-bg-color: #FCFAFA;
+}
+
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Playfair Display", serif;
+  text-decoration: none;
+  list-style: none;
+}
+
+a{
+  color: #191911;
+}
+
+html, body{
+  width: 100%;
+  background-color: var(--main-bg-color);
+  overscroll-behavior: none;
+}
+
+.menu-tog{
+  position: fixed;
+  top: 3%;
+  right: 2%;
+  width: 25px;
+  height: 6px;
+  display: flex;
+  flex-direction: column;
+  cursor: pointer;
+  justify-content: space-between;
+  z-index: 3;
+  mix-blend-mode: difference;
+}
+
+.menu-tog span{
+  position: relative;
+  width: 100%;
+  height: 2px;
+  background-color: #ffffff;
+  transition: 0.5s;
+  transform-origin: center;
+}
+
+.menu-tog.active span:nth-child(1){
+  position: absolute;
+  transform: rotate(45deg);
+}
+
+.menu-tog.active span:nth-child(2){
+  position: absolute;
+  transform: rotate(-45deg);
+}
+
+.header{
+  position: fixed;
+  top: 2%;
+  left: 2%;
+  width: 96%;
+  z-index: 2;
+  mix-blend-mode: difference;
+  color: #ffffff;
+}
+
+h1{
+  font-weight: 400;
+  font-size: 30px;
+  line-height: 30px;
+  letter-spacing: 0px;
+}
+
+.info-text{
+  font-size: 15px;
+}
+
