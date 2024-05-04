@@ -3,7 +3,7 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: 'poppins', sans-serif;
+    font-family:cursive;
 }
 
 .container{
@@ -28,11 +28,12 @@
   display: flex;
   align-items: center;
   margin-bottom: 20px;
+  font-size: 25px;
 }
 
 .todo-app h2 img{
-  width: 30px;
-  margin-left: 10px;
+  width: 40px;
+  padding-right: 5px;
 }
 
 .row{
