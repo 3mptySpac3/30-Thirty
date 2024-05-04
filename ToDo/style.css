@@ -5,3 +5,62 @@
     box-sizing: border-box;
     font-family: 'poppins', sans-serif;
 }
+
+.container{
+    width: 100%;
+    min-height: 100vh;
+    background: linear-gradient(135deg , #8897B3, #ABC1CA);
+    padding: 10px;
+}
+
+.todo-app{
+  width: 100%;
+  max-width: 540px;
+  background-color: #FAFCFB;
+  margin: 100px auto 20px;
+  padding: 40px 30px 70px;
+  border-radius: 10px;
+  box-shadow: rgba(0, 0, 0, 0.25) 0px 25px 50px -12px;
+}
+
+.todo-app h2{
+  color: #0B110C;
+  display: flex;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.todo-app h2 img{
+  width: 30px;
+  margin-left: 10px;
+}
+
+.row{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: #ABC1CA;
+  border-radius: 30px;
+  padding-left: 20px;
+  margin-bottom: 25px;
+}
+
+input{
+  flex: 1;
+  border: none;
+  outline: none;
+  background: transparent;
+  padding: 10px;
+  font-weight: 14px;
+}
+
+button{
+  border: none;
+  outline: none;
+  padding: 16px 30px;
+  background: #8897B3;
+  color: #0B110C;
+  font-size: 14px;
+  cursor: pointer;
+  border-radius: 30px;
+}
