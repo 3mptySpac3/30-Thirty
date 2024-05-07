@@ -12,8 +12,11 @@
     <div class="todo-app">
       <h2><img src="./images/music.svg"> ToDo</h2>
       <div class="row">
-        <input type="text" id="input-box" placeholder="Add a new task">
-        <button>Add</button>
+        <input type="text" id="input-box" placeholder="Add a new task" maxlength="50">
+        <button id="add-button" onclick="addTask()">Add</button>
+      </div>
+      <div class="char-count-container">
+        <span id="char-count" class="char-count">50</span>
       </div>
       <ul id="list-container">
         <!-- <li class="checked">Task 1</li>
@@ -23,5 +26,15 @@
     </div>
   </div>
   <script src="app.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      var button = document.getElementById('add-button'); 
+      button.addEventListener('keypress', function (e) {
+        if (e.key === 'Enter') {
+          addTask();
+        }
+      });
+    });
+  </script>
 </body>
 </html>

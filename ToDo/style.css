@@ -104,4 +104,36 @@ ul li.checked::before{
   background-image: url(images/yes.svg);
 }
 
+.char-count-container {
+  text-align: right; 
+  margin-right: 15px;
+}
+
+span.char-count {
+  color: grey; /* default color */
+}
+
+span.char-count.near-limit {
+  color: red;  /* color when near the limit */
+}
+
+ul li span{
+  position: absolute;
+  right: 0;
+  top: 5px;
+  width: 40px;
+  height: 40px;
+  font-size: 18px;
+  color: #555;
+  line-height: 40px;
+  text-align: center;
+  border-radius: 25%;
+  transition: all 0.6s ease;
+  cursor: pointer;
+}
+ul li span:hover{
+  background: rgba(255, 0, 0, 0.741);
+  color: #0A0F0A;
+  transform: scale(.8);
+}
 
