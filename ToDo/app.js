@@ -33,15 +33,30 @@ function addTask(){
     span.innerHTML = "\u00D7";
     li.appendChild(span);
   }
+  saveData();
 }
 
 listContainer.addEventListener('click', function(e) {
   if (e.target.tagName === 'LI') {
     e.target.classList.toggle('checked');
+    saveData
   } else if (e.target.tagName === 'SPAN') {
     e.target.parentElement.remove ();
+    saveData();
   }
-});
+}, false);
+
+function saveData() {
+  localStorage.setItem('data', listContainer.innerHTML);
+}
+
+function loadData() {
+  listContainer.innerHTML = localStorage.getItem('data');
+}
+
+loadData(); // Load saved data on page load
+
+
 
 addButton.addEventListener('click', addTask);  
 
