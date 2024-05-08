@@ -11,6 +11,7 @@
     min-height: 100vh;
     background: linear-gradient(135deg , #8897B3, #ABC1CA);
     padding: 10px;
+    position: absolute;
 }
 
 .todo-app{
