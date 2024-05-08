@@ -137,3 +137,7 @@ ul li span:hover{
   transform: scale(.8);
 }
 
+body{
+  overflow: hidden;
+}
+
