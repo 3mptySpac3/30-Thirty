@@ -9,9 +9,9 @@ This repository is a collection of 30 diverse projects, each designed to expand 
 
 - [Introduction](#-introduction)
 - [Projects](#-projects)
-  - [Weather App](#-weather-app-project-1)
-  - [Clock App](#-clock-app-project-2)
-  - [ToDo](#-todo-app-project-3)
+  - [Weather App](#project1)
+  - [Clock App](#project2)
+  - [ToDo](#project3)
 - [Installation](#-installation)
 
 ---
@@ -28,23 +28,21 @@ This repository serves as a personal challenge to develop and document thirty un
 
 ## 📁 Projects
 
-### 🌦 [Weather App *Project 1*](https://3mptyspac3.github.io/30-Thirty/)
-
+### <span id="project1"> 🌦 Weather App *Project 1* </span>
 **Folder:** `weatherApp`
 
 🔗 A simple yet functional weather application that uses the [Open Weather API](https://openweathermap.org/) to accurately display weather conditions based on city names. This project focuses on API integration and data handling in a user-friendly interface.
 
 #
 
-### 🕰️ [Clock App *Project 2*](https://3mptyspac3.github.io/30-Thirty/)
-
+### <span id="project2">🕰️ Clock App *Project 2*</span>
 **Folder:** `Clock`
 
 🔗 A simple application that reads the time based on your location/ computer.
 
 #
 
-### 📝 [ToDo App *Project 3*](https://3mptyspac3.github.io/30-Thirty/)
+###  <span id="project3"> 📝 ToDo App *Project 3* </span>
 
 **Folder:** `ToDo`
 
