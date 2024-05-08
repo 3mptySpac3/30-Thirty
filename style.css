@@ -260,9 +260,9 @@ section{
   transition: transform 0.3s ease;
 }
 
-.img-section .wrap .img:hover {
+/* .img-section .wrap .img:hover {
   transform: scale(0.95); 
-}
+} */
 
 .img-section .wrap .info-text-large:hover {
   font-size: calc(larger + 10px); 
@@ -274,5 +274,22 @@ section{
   font-size: larger;
   transition: font-size 0.3s ease; 
   margin-bottom: 10px;
+}
+
+.img-1, .img-2, .img-3 {
+  position: absolute;
+
+  border: 2px solid #F1F1EA; /* Ensure border is visible */
+  box-shadow: 0 2.8px 2.2px rgba(255, 255, 255, 0.034), 
+              0 6.7px 5.3px rgba(255, 255, 255, 0.048), 
+              0 12.5px 10px rgba(255, 255, 255, 0.06), 
+              0 22.3px 17.9px rgba(255, 255, 255, 0.072), 
+              0 41.8px 33.4px rgba(255, 255, 255, 0.086), 
+              0 100px 80px rgba(255, 255, 255, 0.12);
+  transition: transform 0.5s ease; /* Ensure transitions are smooth */
+}
+
+.img-section .wrap:hover {
+  transform: scale(0.9); /* Scales down the whole container including the border */
 }
 
