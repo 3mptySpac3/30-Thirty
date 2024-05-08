@@ -32,7 +32,9 @@ This repository serves as a personal challenge to develop and document thirty un
 
 🔗 A simple yet functional weather application that uses the [Open Weather API](https://openweathermap.org/) to accurately display weather conditions based on city names. This project focuses on API integration and data handling in a user-friendly interface.
 
-### 📝 [ToDo App *Project 2*](https://3mptyspac3.github.io/30-Thirty/)
+### 🕰️ [Clock App *Project 2*](https://3mptyspac3.github.io/30-Thirty/)
+
+### 📝 [ToDo App *Project 3*](https://3mptyspac3.github.io/30-Thirty/)
 
 **Folder:** `ToDo`
 
