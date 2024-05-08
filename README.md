@@ -9,8 +9,9 @@ This repository is a collection of 30 diverse projects, each designed to expand 
 
 - [Introduction](#introduction)
 - [Projects](#projects)
-  - [Weather App *Project 1*](WeatherApp/index.html)
-  - [Clock *Project 2*](https://github.com/3mptySpac3/30-Thirty/blob/main/ToDo/index.html)
+  - Project 1 - *Weather App*
+  - Project 2 - *Clock*
+  - Project 3 - *ToDo*
 - [Installation](#installation)
 
 ---
