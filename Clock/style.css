@@ -45,7 +45,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  background: rgba(87, 95, 127, 0.8); /* Make background semi-transparent */
+  background: rgba(87, 95, 127, 0.8);
   border-radius: 10px;
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px); /* For Safari */
@@ -133,6 +133,10 @@
 
 @media (max-width: 600px) {
 
+  .clock:hover{
+    display: none;
+  }
+
   body{
     overflow: hidden;
   }
@@ -140,6 +144,7 @@
   .container {
       width: 90%;  
       height: auto; 
+      
   }
 
   .clock {
