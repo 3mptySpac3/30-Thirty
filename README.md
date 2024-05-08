@@ -10,7 +10,7 @@ This repository is a collection of 30 diverse projects, each designed to expand 
 - [Introduction](#-introduction)
 - [Projects](#-projects)
   - [Weather App](#-weather-app-project-1)
-  - [Clock](#-clock-app-project-2)
+  - [Clock App](#clock-app-project-2)
   - [ToDo](#-todo-app-project-3)
 - [Installation](#-installation)
 
