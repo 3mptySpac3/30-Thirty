@@ -40,7 +40,7 @@ This repository serves as a personal challenge to develop and document thirty un
 
 **Folder:** `Clock`
 
-🔗 A simple application that reads the time based on your location.
+🔗 A simple application that reads the time based on your location/ computer.
 
 #
 
