@@ -7,12 +7,12 @@ This repository is a collection of 30 diverse projects, each designed to expand 
 
 ## 📚 Table of Contents
 
-- [Introduction](#introduction)
-- [Projects](#projects)
-  - [Project 1 - Weather App](#weather-app-project-1)
-  - [Project 2 - Clock](#clock-app-project-2)
-  - [Project 3 - ToDo](#todo-app-project-3)
-- [Installation](#installation)
+- [Introduction](#-introduction)
+- [Projects](#-projects)
+  - [Weather App](#-weather-app-project-1)
+  - [Clock](#-clock-app-project-2)
+  - [ToDo](#-todo-app-project-3)
+- [Installation](#-installation)
 
 ---
 
