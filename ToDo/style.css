@@ -142,3 +142,10 @@ body{
   overflow: hidden;
 }
 
+
+
+@media (max-width: 600px){
+  .char-count-container {
+    display: none;
+  }
+}
