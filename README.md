@@ -1,5 +1,5 @@
 
-# 🚀 Repository of 30 Projects 🚀
+# 🚀 [Repository of 30 Projects](https://3mptyspac3.github.io/30-Thirty/) 🚀
 
 This repository is a collection of 30 diverse projects, each designed to expand my skills and enhance my understanding of various programming concepts. 
 
