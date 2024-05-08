@@ -32,12 +32,12 @@ function addTask(){
     let li = document.createElement('li');
     li.textContent = inputBox.value;  
     listContainer.appendChild(li);
+    inputBox.value = '';  
     let span = document.createElement('span');
     span.innerHTML = "\u00D7";
     li.appendChild(span);
     updateCharCount();
   }
-  inputBox.value = '';  
   saveData();
 }
 
