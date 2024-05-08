@@ -21,6 +21,11 @@ document.addEventListener('DOMContentLoaded', function() {
   });
 });
 
+function updateCharCount() {
+  const remaining = maxLength - inputBox.value.length;
+  charCount.textContent = `${remaining}`;
+}
+
 function addTask(){
   if (inputBox.value === '') {
     alert('Please enter a task');
@@ -32,6 +37,7 @@ function addTask(){
     let span = document.createElement('span');
     span.innerHTML = "\u00D7";
     li.appendChild(span);
+    updateCharCount();
   }
   saveData();
 }
