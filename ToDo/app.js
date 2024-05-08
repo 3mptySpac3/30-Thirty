@@ -13,7 +13,7 @@ document.addEventListener('DOMContentLoaded', function() {
     charCount.textContent = `${remaining}`;
 
         // Update class based on remaining characters
-        if (remaining <= 20) {  
+        if (remaining <= 5) {  
           charCount.classList.add('near-limit');
         } else {
           charCount.classList.remove('near-limit');

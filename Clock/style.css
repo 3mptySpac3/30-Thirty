@@ -1,0 +1,16 @@
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: monospace;
+}
+
+
+.hero{
+  width: 100%;
+  min-height: 100vh;
+  background: linear-gradient(45deg, #767B8F, #BBABB7);
+  color: #FCFCFC;
+  position: relative;
+}
