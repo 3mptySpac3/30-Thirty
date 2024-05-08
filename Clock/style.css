@@ -6,20 +6,28 @@
     font-family: monospace;
 }
 
+@keyframes gradientBG {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
 
-
-
-.hero{
+.hero {
   width: 100%;
   min-height: 100vh;
-  background: #030303;
+  /* Adjust gradient colors to closer tones for a subtler change */
+  background: linear-gradient(270deg, #000000, #ffc371); 
+  background-size: 600% 600%;
   color: #EEEEF1;
   position: relative;
   display: flex;
   align-items: center;
   justify-content: center;
   overflow: hidden;
+  /* Increase the animation duration for a slower transition */
+  animation: gradientBG 60s ease infinite;
 }
+
 
 .container{
   width: 800px;
@@ -28,6 +36,7 @@
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
+  box-shadow: rgba(50, 50, 105, 0.15) 0px 2px 5px 0px, rgba(0, 0, 0, 0.05) 0px 1px 1px 0px;
 }
 
 .clock {
@@ -40,6 +49,14 @@
   border-radius: 10px;
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px); /* For Safari */
+  transition: all 1s ease-in-out;
+}
+
+.clock:hover {
+  backdrop-filter: blur(15px);
+  transform: scale(1.05);
+  filter: blur(0px); 
+  -webkit-backdrop-filter: blur(0px);
 }
 
 
@@ -52,19 +69,32 @@
 .container::before {
   width: 180px;
   height: 180px;
-  background: #BBAAB7;
+  background: #EEEEF1;
   border-radius: 5px;
   left: -50px;
   top: -50%;
+  transition: all 0.3s ease;
 }
 
 .container::after {
   width: 180px;
   height: 180px;
-  background: #A38F94;
+  background: #EEEEF1;
   border-radius: 50%;
   right: -30px;
   bottom: -50%;
+  transition: all 0.3s ease;
+}
+
+
+.container::before, .container::after {
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+  filter: blur(2px);
+
+}
+
+.container:hover::before, .container:hover::after {
+  filter: blur(0px); 
 }
 
 .clock span{
@@ -73,6 +103,12 @@
   display: inline-block;
   text-align: center;
   position: relative;
+  transition: all 0.3 ease;
+}
+
+.clock span:hover{
+  text-shadow: 0 0 10px rgba(255, 255, 255, 0.7), 0 0 20px rgba(255, 255, 255, 0.5);
+  transition: all 0.3s ease;
 }
 
 .clock span::after{
@@ -94,3 +130,48 @@
 #sec::after{
   content: 'SEC';
 }
+
+@media (max-width: 600px) {
+
+  body{
+    overflow: hidden;
+  }
+
+  .container {
+      width: 90%;  
+      height: auto; 
+  }
+
+  .clock {
+      background: rgba(87, 95, 127, 0.6); 
+  }
+
+  .clock span {
+      font-size: 70px; /* Reduce font size for smaller screens */
+      width: 100px; /* Adjust the width accordingly */
+  }
+
+  .clock span::after {
+    margin-top: 2%;
+      font-size: 20px; 
+  }
+
+  /* Adjust before and after pseudo-elements for mobile */
+  .container::before, .container::after {
+      width: 70px; /* Smaller pseudo-elements */
+      height: 70px;
+      top: 10%; /* Adjust positioning */
+  }
+
+  .container::before {
+      left: -3%; 
+      top: -25%;
+  }
+
+  .container::after {
+      right: -3%; 
+      top: 45%;
+  }
+
+}
+
