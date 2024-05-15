@@ -65,6 +65,8 @@ __Player 2__
 `up-arrow` and `down-arrow`
 ```
 
+ - First to 7
+
 🎥 
 `["Demo"]`
 
