@@ -93,8 +93,8 @@ function moveBall() {
     player1ScoreDisplay.textContent = player1Score;
     player2ScoreDisplay.textContent = player2Score;
 
-    if (player1Score === 3 || player2Score === 3) {
-        displayFireworks(player1Score === 3 ? 1 : 2);
+    if (player1Score === 7 || player2Score === 7) {
+        displayFireworks(player1Score === 7 ? 1 : 2);
     }
 }
 
