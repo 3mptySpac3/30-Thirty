@@ -71,8 +71,10 @@ function moveBall() {
     player1ScoreDisplay.textContent = player1Score;
     player2ScoreDisplay.textContent = player2Score;
 
-    if (player1Score === 3 || player2Score === 3) {
-        displayFireworks(player1Score === 3 ? 1 : 2);
+    // score limit changer
+
+    if (player1Score === 7 || player2Score === 7) {
+        displayFireworks(player1Score === 7 ? 1 : 2);
     }
 }
 
@@ -107,11 +109,15 @@ function update() {
 }
 
 function render() {
-    context.clearRect(0, 0, canvas.width, canvas.height);
+  context.clearRect(0, 0, canvas.width, canvas.height);
 
-    drawRect(paddle1.x, paddle1.y, paddleWidth, paddleHeight, "white");
-    drawRect(paddle2.x, paddle2.y, paddleWidth, paddleHeight, "white");
-    drawCircle(ball.x, ball.y, ballRadius, "white");
+  drawRect(paddle1.x, paddle1.y, paddleWidth, paddleHeight, "white");
+  drawRect(paddle2.x, paddle2.y, paddleWidth, paddleHeight, "white");
+
+  // Only render the ball if the game is not paused
+  if (!gamePaused) {
+      drawCircle(ball.x, ball.y, ballRadius, "white");
+  }
 }
 
 function gameLoop() {
@@ -199,7 +205,7 @@ function moveAI() {
 
 function displayFireworks(winner) {
     fireworksCanvas.classList.remove("hidden");
-    const fireworksDuration = 5000; // Duration of fireworks in milliseconds
+    const fireworksDuration = 3000; // Duration of fireworks in milliseconds
 
     const particles = [];
     const colors = ["#FF0000", "#FF7F00", "#FFFF00", "#00FF00", "#0000FF", "#8B00FF"];
