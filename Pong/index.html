@@ -10,8 +10,12 @@
     <div id="scoreboard">
         <span id="player1-score">0</span> - <span id="player2-score">0</span>
     </div>
-    <canvas id="pongCanvas" width="800" height="400"></canvas>
-    <div id="menu">
+    <div class="container">
+        <canvas id="pongCanvas" width="800" height="400"></canvas>
+        <canvas id="fireworksCanvas" width="800" height="400" class="hidden"></canvas>
+        <div id="winnerMessage" class="hidden"></div>
+    </div>
+    <div id="menu" class="hidden">
         <h2>Settings</h2>
         <button id="play-vs-ai">Play vs AI</button>
         <button id="play-vs-human">Play vs Human</button>
@@ -21,5 +25,3 @@
     <script src="app.js"></script>
 </body>
 </html>
-
-

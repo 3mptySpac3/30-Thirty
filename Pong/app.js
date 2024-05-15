@@ -1,7 +1,9 @@
 const canvas = document.getElementById("pongCanvas");
 const context = canvas.getContext("2d");
+const fireworksCanvas = document.getElementById("fireworksCanvas");
+const fireworksContext = fireworksCanvas.getContext("2d");
 const menu = document.getElementById("menu");
-
+const winnerMessage = document.getElementById("winnerMessage");
 
 // Game variables
 const paddleWidth = 10;
@@ -14,6 +16,7 @@ let ball = { x: canvas.width / 2, y: canvas.height / 2, dx: 4, dy: 4 };
 let player1Score = 0;
 let player2Score = 0;
 let gameMode = "human"; // "human" or "ai"
+let gamePaused = false;
 
 const player1ScoreDisplay = document.getElementById("player1-score");
 const player2ScoreDisplay = document.getElementById("player2-score");
@@ -47,10 +50,12 @@ function moveBall() {
 
     if (ball.x - ballRadius < paddle1.x + paddleWidth && ball.y > paddle1.y && ball.y < paddle1.y + paddleHeight) {
         ball.dx *= -1;
+        increaseBallSpeed();
     }
 
     if (ball.x + ballRadius > paddle2.x && ball.y > paddle2.y && ball.y < paddle2.y + paddleHeight) {
         ball.dx *= -1;
+        increaseBallSpeed();
     }
 
     if (ball.x - ballRadius < 0) {
@@ -66,10 +71,14 @@ function moveBall() {
     player1ScoreDisplay.textContent = player1Score;
     player2ScoreDisplay.textContent = player2Score;
 
-    if (player1Score === 11 || player2Score === 11) {
-        alert(`Player ${player1Score === 11 ? 1 : 2} wins!`);
-        resetGame();
+    if (player1Score === 3 || player2Score === 3) {
+        displayFireworks(player1Score === 3 ? 1 : 2);
     }
+}
+
+function increaseBallSpeed() {
+    ball.dx *= 1.1;
+    ball.dy *= 1.1;
 }
 
 function resetBall() {
@@ -86,12 +95,14 @@ function resetGame() {
 }
 
 function update() {
-    movePaddle(paddle1);
-    movePaddle(paddle2);
-    moveBall();
+    if (!gamePaused) {
+        movePaddle(paddle1);
+        movePaddle(paddle2);
+        moveBall();
 
-    if (gameMode === "ai") {
-        moveAI();
+        if (gameMode === "ai") {
+            moveAI();
+        }
     }
 }
 
@@ -110,62 +121,71 @@ function gameLoop() {
 }
 
 document.addEventListener("keydown", event => {
-  switch (event.key) {
-      case "ArrowUp":
-          paddle2.dy = -5;
-          break;
-      case "ArrowDown":
-          paddle2.dy = 5;
-          break;
-      case "w":
-          paddle1.dy = -5;
-          break;
-      case "s":
-          paddle1.dy = 5;
-          break;
-      case "m":
-          toggleMenu();
-          break;
-  }
+    switch (event.key) {
+        case "ArrowUp":
+            paddle2.dy = -5;
+            break;
+        case "ArrowDown":
+            paddle2.dy = 5;
+            break;
+        case "w":
+            paddle1.dy = -5;
+            break;
+        case "s":
+            paddle1.dy = 5;
+            break;
+        case "m":
+            toggleMenu();
+            break;
+    }
 });
 
 document.addEventListener("keyup", event => {
-  switch (event.key) {
-      case "ArrowUp":
-      case "ArrowDown":
-          paddle2.dy = 0;
-          break;
-      case "w":
-      case "s":
-          paddle1.dy = 0;
-          break;
-  }
+    switch (event.key) {
+        case "ArrowUp":
+        case "ArrowDown":
+            paddle2.dy = 0;
+            break;
+        case "w":
+        case "s":
+            paddle1.dy = 0;
+            break;
+    }
 });
 
-
 function toggleMenu() {
-  menu.classList.toggle("hidden");
+    console.log("Menu toggled");
+    menu.classList.toggle("hidden");
 }
 
 document.getElementById("play-vs-ai").addEventListener("click", () => {
-  gameMode = "ai";
-  menu.classList.add("hidden");
-  resetGame();
+    gameMode = "ai";
+    toggleMenu();
+    resetGame();
+    resetPaddles();
 });
 
 document.getElementById("play-vs-human").addEventListener("click", () => {
-  gameMode = "human";
-  menu.classList.add("hidden");
-  resetGame();
+    gameMode = "human";
+    toggleMenu();
+    resetGame();
+    resetPaddles();
 });
 
 document.getElementById("toggle-music").addEventListener("click", () => {
-  // Implement music toggle functionality
+    // Implement music toggle functionality
 });
 
 document.getElementById("toggle-sound").addEventListener("click", () => {
-  // Implement sound toggle functionality
+    // Implement sound toggle functionality
 });
+
+function resetPaddles() {
+    paddle1.y = canvas.height / 2 - paddleHeight / 2;
+    paddle1.dy = 0;
+    paddle2.y = canvas.height / 2 - paddleHeight / 2;
+    paddle2.dy = 0;
+}
 
 function moveAI() {
     if (ball.y < paddle2.y + paddleHeight / 2) {
@@ -175,6 +195,82 @@ function moveAI() {
     } else {
         paddle2.dy = 0;
     }
+}
+
+function displayFireworks(winner) {
+    fireworksCanvas.classList.remove("hidden");
+    const fireworksDuration = 5000; // Duration of fireworks in milliseconds
+
+    const particles = [];
+    const colors = ["#FF0000", "#FF7F00", "#FFFF00", "#00FF00", "#0000FF", "#8B00FF"];
+
+    // Display winner message
+    winnerMessage.textContent = `Player ${winner} Wins!`;
+    winnerMessage.classList.remove("hidden");
+
+    function createParticle(x, y, color) {
+        const particle = {
+            x: x,
+            y: y,
+            dx: (Math.random() - 0.5) * 4,
+            dy: (Math.random() - 0.5) * 4,
+            life: Math.random() * 30 + 30,
+            color: color
+        };
+        particles.push(particle);
+    }
+
+    function updateParticles() {
+        for (let i = particles.length - 1; i >= 0; i--) {
+            const particle = particles[i];
+            particle.x += particle.dx;
+            particle.y += particle.dy;
+            particle.dy += 0.02; // Gravity effect
+            particle.life -= 1;
+            if (particle.life <= 0) {
+                particles.splice(i, 1);
+            }
+        }
+    }
+
+    function renderParticles() {
+        fireworksContext.clearRect(0, 0, fireworksCanvas.width, fireworksCanvas.height);
+        for (const particle of particles) {
+            fireworksContext.fillStyle = particle.color;
+            fireworksContext.fillRect(particle.x, particle.y, 3, 3);
+        }
+    }
+
+    function animateFireworks() {
+        updateParticles();
+        renderParticles();
+        if (particles.length > 0) {
+            requestAnimationFrame(animateFireworks);
+        } else {
+            fireworksCanvas.classList.add("hidden");
+        }
+    }
+
+    function triggerFireworks() {
+        for (let i = 0; i < 100; i++) {
+            const x = Math.random() * fireworksCanvas.width;
+            const y = Math.random() * fireworksCanvas.height;
+            const color = colors[Math.floor(Math.random() * colors.length)];
+            createParticle(x, y, color);
+        }
+        animateFireworks();
+    }
+
+    triggerFireworks();
+
+    // Pause the game and show the winner message
+    gamePaused = true;
+    setTimeout(() => {
+        gamePaused = false;
+        fireworksCanvas.classList.add("hidden");
+        winnerMessage.classList.add("hidden");
+        resetGame();
+    }, fireworksDuration);
 }
 
 gameLoop();
