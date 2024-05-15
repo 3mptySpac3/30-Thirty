@@ -51,7 +51,7 @@ This repository serves as a personal challenge to develop and document thirty un
 
 #
 
-###  <span id="project4"> 📝 Pong Game *Project 4* </span>
+###  <span id="project4"> 🏓 Pong Game *Project 4* </span>
 
 **Folder:** `Pong`
 
