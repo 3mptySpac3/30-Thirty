@@ -4,12 +4,13 @@ const fireworksCanvas = document.getElementById("fireworksCanvas");
 const fireworksContext = fireworksCanvas.getContext("2d");
 const menu = document.getElementById("menu");
 const winnerMessage = document.getElementById("winnerMessage");
+const backgroundMusic = document.getElementById("backgroundMusic");
+const paddleHitSound = document.getElementById("paddleHitSound");
 
 // Game variables
 const paddleWidth = 10;
 const paddleHeight = 100;
 const ballRadius = 10;
-
 let paddle1 = { x: 0, y: canvas.height / 2 - paddleHeight / 2, dy: 0 };
 let paddle2 = { x: canvas.width - paddleWidth, y: canvas.height / 2 - paddleHeight / 2, dy: 0 };
 let ball = { x: canvas.width / 2, y: canvas.height / 2, dx: 4, dy: 4 };
@@ -17,6 +18,9 @@ let player1Score = 0;
 let player2Score = 0;
 let gameMode = "human"; // "human" or "ai"
 let gamePaused = false;
+let musicPlaying = false;
+let soundEnabled = true;
+
 
 const player1ScoreDisplay = document.getElementById("player1-score");
 const player2ScoreDisplay = document.getElementById("player2-score");
@@ -51,11 +55,13 @@ function moveBall() {
     if (ball.x - ballRadius < paddle1.x + paddleWidth && ball.y > paddle1.y && ball.y < paddle1.y + paddleHeight) {
         ball.dx *= -1;
         increaseBallSpeed();
+        playPaddleHitSound();
     }
 
     if (ball.x + ballRadius > paddle2.x && ball.y > paddle2.y && ball.y < paddle2.y + paddleHeight) {
         ball.dx *= -1;
         increaseBallSpeed();
+        playPaddleHitSound();
     }
 
     if (ball.x - ballRadius < 0) {
@@ -71,10 +77,8 @@ function moveBall() {
     player1ScoreDisplay.textContent = player1Score;
     player2ScoreDisplay.textContent = player2Score;
 
-    // score limit changer
-
-    if (player1Score === 7 || player2Score === 7) {
-        displayFireworks(player1Score === 7 ? 1 : 2);
+    if (player1Score === 3 || player2Score === 3) {
+        displayFireworks(player1Score === 3 ? 1 : 2);
     }
 }
 
@@ -109,15 +113,14 @@ function update() {
 }
 
 function render() {
-  context.clearRect(0, 0, canvas.width, canvas.height);
+    context.clearRect(0, 0, canvas.width, canvas.height);
 
-  drawRect(paddle1.x, paddle1.y, paddleWidth, paddleHeight, "white");
-  drawRect(paddle2.x, paddle2.y, paddleWidth, paddleHeight, "white");
+    drawRect(paddle1.x, paddle1.y, paddleWidth, paddleHeight, "white");
+    drawRect(paddle2.x, paddle2.y, paddleWidth, paddleHeight, "white");
 
-  // Only render the ball if the game is not paused
-  if (!gamePaused) {
-      drawCircle(ball.x, ball.y, ballRadius, "white");
-  }
+    if (!gamePaused) {
+        drawCircle(ball.x, ball.y, ballRadius, "white");
+    }
 }
 
 function gameLoop() {
@@ -179,12 +182,24 @@ document.getElementById("play-vs-human").addEventListener("click", () => {
 });
 
 document.getElementById("toggle-music").addEventListener("click", () => {
-    // Implement music toggle functionality
+    if (musicPlaying) {
+        backgroundMusic.pause();
+    } else {
+        backgroundMusic.play();
+    }
+    musicPlaying = !musicPlaying;
 });
 
 document.getElementById("toggle-sound").addEventListener("click", () => {
-    // Implement sound toggle functionality
+    soundEnabled = !soundEnabled;
 });
+
+function playPaddleHitSound() {
+    if (soundEnabled) {
+        paddleHitSound.currentTime = 0;
+        paddleHitSound.play();
+    }
+}
 
 function resetPaddles() {
     paddle1.y = canvas.height / 2 - paddleHeight / 2;
