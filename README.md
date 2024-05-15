@@ -12,6 +12,7 @@ This repository is a collection of 30 diverse projects, each designed to expand 
   - [Weather App](#project1)
   - [Clock App](#project2)
   - [ToDo](#project3)
+  - [Pong](#project4)
 - [Installation](#-installation)
 
 ---
@@ -49,6 +50,20 @@ This repository serves as a personal challenge to develop and document thirty un
 🔗 Explore a sleek to-do application that uses your device's local storage to keep your tasks and data safe. You can easily pick up where you left off, anytime you return.
 
 #
+
+###  <span id="project4"> 📝 Pong Game *Project 4* </span>
+
+**Folder:** `Pong`
+
+🔗 A fun little pong game that uses collision logic and audio to make for a fun experience. There are two game modes, you can play against the computer, or you can play against another individual.
+
+_Keyboard:_
+```bash
+__Player 1__
+`w` and `s`
+__Player 2__
+`up-arrow` and `down-arrow`
+```
 
 🎥 
 `["Demo"]`
