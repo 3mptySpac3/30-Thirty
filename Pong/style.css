@@ -77,6 +77,11 @@ canvas {
   transition: background 0.3s, color 0.3s, transform 0.3s;
 }
 
+#smallDeviceMessage h2 {
+  font-size: 2rem;
+  text-shadow: 0 0 5px #FFD700, 0 0 10px #FFD700;
+}
+
 #menu button:hover {
   background: #555;
   color: #ffd700;
@@ -85,4 +90,18 @@ canvas {
 
 .hidden {
   display: none;
+}
+
+
+@media (max-width: 600px) {
+  #smallDeviceMessage {
+    display: flex; /* Show the message on small screens */
+  }
+
+  #scoreboard,
+  .container,
+  #menu,
+  #winnerMessage {
+    display: none;
+  }
 }

@@ -25,6 +25,22 @@ let soundEnabled = true;
 const player1ScoreDisplay = document.getElementById("player1-score");
 const player2ScoreDisplay = document.getElementById("player2-score");
 
+
+document.addEventListener("DOMContentLoaded", () => {
+  const smallDeviceMessage = document.getElementById("smallDeviceMessage");
+
+  function checkScreenSize() {
+    if (window.innerWidth <= 600) {
+      smallDeviceMessage.classList.remove("hidden");
+    } else {
+      smallDeviceMessage.classList.add("hidden");
+    }
+  }
+
+  window.addEventListener("resize", checkScreenSize);
+  checkScreenSize();
+});
+
 function drawRect(x, y, width, height, color) {
     context.fillStyle = color;
     context.fillRect(x, y, width, height);
