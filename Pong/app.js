@@ -11,6 +11,8 @@ const scoreSound = document.getElementById("scoreSound");
 const winningPose = document.getElementById("winning-pose");
 const ballSpeedSlider = document.getElementById("ball-speed");
 const pauseGameToggle = document.getElementById("pause-game");
+const playVsAiButton = document.getElementById("play-vs-ai");
+const playVsHumanButton = document.getElementById("play-vs-human");
 
 // Game variables
 const paddleWidth = 10;
@@ -26,6 +28,8 @@ let gamePaused = false;
 let musicPlaying = false;
 let soundEnabled = true;
 let ballSpeed = ballSpeedSlider.value;
+let targetScore = 7; // Default target score
+
 
 
 
@@ -64,6 +68,35 @@ pauseGameToggle.addEventListener("change", () => {
   }
   update(); // Ensure the game loop reflects the paused state
 });
+
+// Ensure only one game mode is selected at a time and handle game mode change
+playVsAiButton.addEventListener("change", () => {
+  if (playVsAiButton.checked) {
+    gameMode = "ai";
+    playVsHumanButton.checked = false;
+    resetGame();
+    resetPaddles();
+    toggleMenu();
+  }
+});
+
+playVsHumanButton.addEventListener("change", () => {
+  if (playVsHumanButton.checked) {
+    gameMode = "human";
+    playVsAiButton.checked = false;
+    resetGame();
+    resetPaddles();
+    toggleMenu();
+  }
+});
+
+function promptForTargetScore() {
+  let score;
+  do {
+      score = parseInt(prompt("Enter the target score for the game (1-99):"), 10);
+  } while (isNaN(score) || score < 1 || score > 99);
+  targetScore = score;
+}
 
 function drawRect(x, y, width, height, color) {
     context.fillStyle = color;
@@ -147,10 +180,11 @@ function moveBall() {
   player1ScoreDisplay.textContent = player1Score;
   player2ScoreDisplay.textContent = player2Score;
 
-  if (player1Score === 7 || player2Score === 7) {
-      displayFireworks(player1Score === 7 ? 1 : 2);
+  if (player1Score === targetScore || player2Score === targetScore) {
+      displayFireworks(player1Score === targetScore ? 1 : 2);
   }
 }
+
 
 function increaseBallSpeed() {
   ball.dx *= 1.1;
@@ -294,9 +328,9 @@ function moveAI() {
 function displayFireworks(winner) {
   fireworksCanvas.classList.remove("hidden");
   playWinningPoseSound();
-  
+
   const winningPoseDuration = 1000; // Duration of winning pose sound in milliseconds
-  
+
   playFireworksSound(winningPoseDuration);
 
   const fireworksDuration = 3000; // Duration of fireworks in milliseconds
@@ -370,8 +404,10 @@ function displayFireworks(winner) {
       fireworksCanvas.classList.add("hidden");
       winnerMessage.classList.add("hidden");
       resetGame();
+      promptForTargetScore(); // Prompt for the target score before starting the next game
   }, fireworksDuration);
 }
+
 
 
 
