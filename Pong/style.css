@@ -93,9 +93,11 @@ canvas {
 }
 
 
-@media (max-width: 600px) {
+@media (max-width: 1250px) {
   #smallDeviceMessage {
     display: flex; /* Show the message on small screens */
+    justify-content: center;
+    align-items: center;
   }
 
   #scoreboard,
