@@ -14,7 +14,7 @@ const pauseGameToggle = document.getElementById("pause-game");
 
 // Game variables
 const paddleWidth = 10;
-const paddleHeight = 100;
+const paddleHeight = 70;
 const ballRadius = 10;
 let paddle1 = { x: 0, y: canvas.height / 2 - paddleHeight / 2, dy: 0 };
 let paddle2 = { x: canvas.width - paddleWidth, y: canvas.height / 2 - paddleHeight / 2, dy: 0 };
@@ -46,6 +46,23 @@ document.addEventListener("DOMContentLoaded", () => {
 
   window.addEventListener("resize", checkScreenSize);
   checkScreenSize();
+});
+
+ballSpeedSlider.addEventListener("input", () => {
+  ballSpeed = ballSpeedSlider.value;
+  resetBall();  // Adjust the initial speed of the ball
+});
+
+pauseGameToggle.addEventListener("change", () => {
+  gamePaused = pauseGameToggle.checked;
+  if (gamePaused) {
+      backgroundMusic.pause();
+  } else {
+      if (musicPlaying) {
+          backgroundMusic.play();
+      }
+  }
+  update(); // Ensure the game loop reflects the paused state
 });
 
 function drawRect(x, y, width, height, color) {
@@ -96,73 +113,73 @@ function playWinningPoseSound() {
 
 
 function moveBall() {
-    ball.x += ball.dx;
-    ball.y += ball.dy;
+  ball.x += ball.dx;
+  ball.y += ball.dy;
 
-    if (ball.y + ballRadius > canvas.height || ball.y - ballRadius < 0) {
-        ball.dy *= -1;
-    }
+  if (ball.y + ballRadius > canvas.height || ball.y - ballRadius < 0) {
+      ball.dy *= -1;
+  }
 
-    if (ball.x - ballRadius < paddle1.x + paddleWidth && ball.y > paddle1.y && ball.y < paddle1.y + paddleHeight) {
-        ball.dx *= -1;
-        increaseBallSpeed();
-        playPaddleHitSound();
-    }
+  if (ball.x - ballRadius < paddle1.x + paddleWidth && ball.y > paddle1.y && ball.y < paddle1.y + paddleHeight) {
+      ball.dx *= -1;
+      increaseBallSpeed();
+      playPaddleHitSound();
+  }
 
-    if (ball.x + ballRadius > paddle2.x && ball.y > paddle2.y && ball.y < paddle2.y + paddleHeight) {
-        ball.dx *= -1;
-        increaseBallSpeed();
-        playPaddleHitSound();
-    }
+  if (ball.x + ballRadius > paddle2.x && ball.y > paddle2.y && ball.y < paddle2.y + paddleHeight) {
+      ball.dx *= -1;
+      increaseBallSpeed();
+      playPaddleHitSound();
+  }
 
-    if (ball.x - ballRadius < 0) {
-        player2Score++;
-        playScoreSound();
-        resetBall();
-    }
+  if (ball.x - ballRadius < 0) {
+      player2Score++;
+      playScoreSound();
+      resetBall();
+  }
 
-    if (ball.x + ballRadius > canvas.width) {
-        player1Score++;
-        playScoreSound();
-        resetBall();
-    }
+  if (ball.x + ballRadius > canvas.width) {
+      player1Score++;
+      playScoreSound();
+      resetBall();
+  }
 
-    player1ScoreDisplay.textContent = player1Score;
-    player2ScoreDisplay.textContent = player2Score;
+  player1ScoreDisplay.textContent = player1Score;
+  player2ScoreDisplay.textContent = player2Score;
 
-    if (player1Score === 7 || player2Score === 7) {
-        displayFireworks(player1Score === 7 ? 1 : 2);
-    }
+  if (player1Score === 7 || player2Score === 7) {
+      displayFireworks(player1Score === 7 ? 1 : 2);
+  }
 }
 
 function increaseBallSpeed() {
-    ball.dx *= 1.1;
-    ball.dy *= 1.1;
+  ball.dx *= 1.1;
+  ball.dy *= 1.1;
 }
 
 function resetBall() {
-    ball.x = canvas.width / 2;
-    ball.y = canvas.height / 2;
-    ball.dx = 4 * (Math.random() > 0.5 ? 1 : -1);
-    ball.dy = 4 * (Math.random() > 0.5 ? 1 : -1);
+  ball.x = canvas.width / 2;
+  ball.y = canvas.height / 2;
+  ball.dx = ballSpeed * (Math.random() > 0.5 ? 1 : -1);
+  ball.dy = ballSpeed * (Math.random() > 0.5 ? 1 : -1);
 }
 
 function resetGame() {
-    player1Score = 0;
-    player2Score = 0;
-    resetBall();
+  player1Score = 0;
+  player2Score = 0;
+  resetBall();
 }
 
 function update() {
-    if (!gamePaused) {
-        movePaddle(paddle1);
-        movePaddle(paddle2);
-        moveBall();
+  if (!gamePaused) {
+      movePaddle(paddle1);
+      movePaddle(paddle2);
+      moveBall();
 
-        if (gameMode === "ai") {
-            moveAI();
-        }
-    }
+      if (gameMode === "ai") {
+          moveAI();
+      }
+  }
 }
 
 function render() {
