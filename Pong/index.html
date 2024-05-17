@@ -8,65 +8,73 @@
     <link rel="icon" href="./favico/favicon.ico" type="image/x-icon">
 </head>
 <body>
+  <!-- Modal -->
+  <div id="targetScoreModal" class="modal hidden">
+    <div class="modal-content">
+      <h2>Enter Target Score</h2>
+      <input type="number" id="targetScoreInput" min="1" max="99">
+      <button id="setTargetScore">Set Score</button>
+    </div>
+  </div>
+
   <div id="smallDeviceMessage" class="hidden">
     <h2>Please use a larger device to play this game.</h2>
   </div>
-    <div id="scoreboard">
-        <span id="player1-score">0</span> - <span id="player2-score">0</span>
-    </div>
-    <div class="container">
-        <canvas id="pongCanvas" width="800" height="400"></canvas>
-        <canvas id="fireworksCanvas" width="800" height="400" class="hidden"></canvas>
-        <div id="winnerMessage" class="hidden"></div>
-    </div>
-    <div id="menu" class="hidden">
-        <h2>Settings</h2>
-        <div>
-            <label for="ball-speed">Ball Speed</label>
-            <input type="range" id="ball-speed" min="1" max="10" value="5">
-        </div>
-        <div class="toggle-container">
-          <span>vs CPU</span>
+  <div id="scoreboard">
+      <span id="player1-score">0</span> - <span id="player2-score">0</span>
+  </div>
+  <div class="container">
+      <canvas id="pongCanvas" width="800" height="400"></canvas>
+      <canvas id="fireworksCanvas" width="800" height="400" class="hidden"></canvas>
+      <div id="winnerMessage" class="hidden"></div>
+  </div>
+  <div id="menu" class="hidden">
+      <h2>Settings</h2>
+      <div>
+          <label for="ball-speed">Ball Speed</label>
+          <input type="range" id="ball-speed" min="1" max="10" value="5">
+      </div>
+      <div class="toggle-container">
+        <span>vs CPU</span>
+        <label class="switch">
+            <input type="radio" name="game-mode" id="play-vs-ai">
+            <span class="slider round"></span>
+        </label>
+      </div>
+      <div class="toggle-container">
+        <span>vs Human</span>
+        <label class="switch">
+            <input type="radio" name="game-mode" id="play-vs-human" checked>
+            <span class="slider round"></span>
+        </label>
+      </div>
+      <div class="toggle-container">
+          <span>Music</span>
           <label class="switch">
-              <input type="radio" name="game-mode" id="play-vs-ai">
+              <input type="checkbox" id="toggle-music">
               <span class="slider round"></span>
           </label>
-        </div>
-        <div class="toggle-container">
-          <span>vs Human</span>
+      </div>
+      <div class="toggle-container">
+          <span>Heptics</span>
           <label class="switch">
-              <input type="radio" name="game-mode" id="play-vs-human" checked>
+              <input type="checkbox" id="toggle-sound" checked>
               <span class="slider round"></span>
           </label>
-        </div>
-        <div class="toggle-container">
-            <span>Music</span>
-            <label class="switch">
-                <input type="checkbox" id="toggle-music">
-                <span class="slider round"></span>
-            </label>
-        </div>
-        <div class="toggle-container">
-            <span>Heptics</span>
-            <label class="switch">
-                <input type="checkbox" id="toggle-sound" checked>
-                <span class="slider round"></span>
-            </label>
-        </div>
-        <div class="toggle-container">
-          <span>Pause</span>
-          <label class="switch">
-              <input type="checkbox" id="pause-game">
-              <span class="slider round"></span>
-          </label>
-
-        </div>
-    </div>
-    <audio id="backgroundMusic" src="audio/back.mp3" loop></audio>
-    <audio id="paddleHitSound" src="audio/hithit.mp3"></audio>
-    <audio id="fireworksSound" src="audio/won.mp3"></audio>
-    <audio id="winning-pose" src="audio/camera-winner-pic.mp3"></audio>
-    <audio id="scoreSound" src="audio/negative-score.mp3"></audio>
-    <script src="app.js"></script>
+      </div>
+      <div class="toggle-container">
+        <span>Pause</span>
+        <label class="switch">
+            <input type="checkbox" id="pause-game">
+            <span class="slider round"></span>
+        </label>
+      </div>
+  </div>
+  <audio id="backgroundMusic" src="audio/back.mp3" loop></audio>
+  <audio id="paddleHitSound" src="audio/hithit.mp3"></audio>
+  <audio id="fireworksSound" src="audio/won.mp3"></audio>
+  <audio id="winning-pose" src="audio/camera-winner-pic.mp3"></audio>
+  <audio id="scoreSound" src="audio/negative-score.mp3"></audio>
+  <script src="app.js"></script>
 </body>
 </html>

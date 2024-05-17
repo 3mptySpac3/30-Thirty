@@ -13,6 +13,9 @@ const ballSpeedSlider = document.getElementById("ball-speed");
 const pauseGameToggle = document.getElementById("pause-game");
 const playVsAiButton = document.getElementById("play-vs-ai");
 const playVsHumanButton = document.getElementById("play-vs-human");
+const targetScoreModal = document.getElementById("targetScoreModal");
+const targetScoreInput = document.getElementById("targetScoreInput");
+const setTargetScoreButton = document.getElementById("setTargetScore");
 
 // Game variables
 const paddleWidth = 10;
@@ -37,7 +40,39 @@ const player1ScoreDisplay = document.getElementById("player1-score");
 const player2ScoreDisplay = document.getElementById("player2-score");
 
 
+function promptForTargetScore() {
+  targetScoreInput.value = targetScore; // Set the input to the current target score
+  targetScoreModal.classList.remove("hidden");
+  setTimeout(() => {
+    targetScoreModal.classList.add("show");
+  }, 100); // Delay to allow CSS transition
+  gamePaused = true; // Pause the game until the target score is set
+}
+
+setTargetScoreButton.addEventListener("click", () => {
+  const score = parseInt(targetScoreInput.value, 10);
+  if (!isNaN(score) && score >= 1 && score <= 99) {
+    targetScore = score;
+    targetScoreModal.classList.remove("show");
+    setTimeout(() => {
+      targetScoreModal.classList.add("hidden");
+      resetGame(); // Reset the game components before starting
+      gamePaused = false; // Unpause the game
+    }, 500); // Delay to match CSS transition
+  } else {
+    alert("Please enter a valid number between 1 and 99.");
+  }
+});
+
+function startGame() {
+  resetGame();
+  gameLoop();
+}
+
+
 document.addEventListener("DOMContentLoaded", () => {
+  promptForTargetScore(); // Show the modal when the game starts
+
   const smallDeviceMessage = document.getElementById("smallDeviceMessage");
 
   function checkScreenSize() {
@@ -90,13 +125,6 @@ playVsHumanButton.addEventListener("change", () => {
   }
 });
 
-function promptForTargetScore() {
-  let score;
-  do {
-      score = parseInt(prompt("Enter the target score for the game (1-99):"), 10);
-  } while (isNaN(score) || score < 1 || score > 99);
-  targetScore = score;
-}
 
 function drawRect(x, y, width, height, color) {
     context.fillStyle = color;
@@ -155,13 +183,13 @@ function moveBall() {
 
   if (ball.x - ballRadius < paddle1.x + paddleWidth && ball.y > paddle1.y && ball.y < paddle1.y + paddleHeight) {
       ball.dx *= -1;
-      increaseBallSpeed();
+      // increaseBallSpeed();
       playPaddleHitSound();
   }
 
   if (ball.x + ballRadius > paddle2.x && ball.y > paddle2.y && ball.y < paddle2.y + paddleHeight) {
       ball.dx *= -1;
-      increaseBallSpeed();
+      // increaseBallSpeed();
       playPaddleHitSound();
   }
 
