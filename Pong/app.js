@@ -9,6 +9,8 @@ const paddleHitSound = document.getElementById("paddleHitSound");
 const fireworksSound = document.getElementById("fireworksSound");
 const scoreSound = document.getElementById("scoreSound");
 const winningPose = document.getElementById("winning-pose");
+const ballSpeedSlider = document.getElementById("ball-speed");
+const pauseGameToggle = document.getElementById("pause-game");
 
 // Game variables
 const paddleWidth = 10;
@@ -23,6 +25,8 @@ let gameMode = "human"; // "human" or "ai"
 let gamePaused = false;
 let musicPlaying = false;
 let soundEnabled = true;
+let ballSpeed = ballSpeedSlider.value;
+
 
 
 const player1ScoreDisplay = document.getElementById("player1-score");
@@ -33,7 +37,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const smallDeviceMessage = document.getElementById("smallDeviceMessage");
 
   function checkScreenSize() {
-    if (window.innerWidth <= 600) {
+    if (window.innerWidth <= 1250) {
       smallDeviceMessage.classList.remove("hidden");
     } else {
       smallDeviceMessage.classList.add("hidden");
@@ -65,12 +69,12 @@ function movePaddle(paddle) {
 
 // Play sound when fireworks are displayed
 function playFireworksSound(delay = 0) {
-  if (soundEnabled) {
-      setTimeout(() => {
-          fireworksSound.currentTime = 0;
-          fireworksSound.play();
-      }, delay);
-  }
+    if (soundEnabled) {
+        setTimeout(() => {
+            fireworksSound.currentTime = 0;
+            fireworksSound.play();
+        }, delay);
+    }
 }
 
 // Play sound when a player scores
