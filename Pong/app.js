@@ -6,6 +6,9 @@ const menu = document.getElementById("menu");
 const winnerMessage = document.getElementById("winnerMessage");
 const backgroundMusic = document.getElementById("backgroundMusic");
 const paddleHitSound = document.getElementById("paddleHitSound");
+const fireworksSound = document.getElementById("fireworksSound");
+const scoreSound = document.getElementById("scoreSound");
+const winningPose = document.getElementById("winning-pose");
 
 // Game variables
 const paddleWidth = 10;
@@ -60,6 +63,34 @@ function movePaddle(paddle) {
     if (paddle.y + paddleHeight > canvas.height) paddle.y = canvas.height - paddleHeight;
 }
 
+// Play sound when fireworks are displayed
+function playFireworksSound(delay = 0) {
+  if (soundEnabled) {
+      setTimeout(() => {
+          fireworksSound.currentTime = 0;
+          fireworksSound.play();
+      }, delay);
+  }
+}
+
+// Play sound when a player scores
+function playScoreSound() {
+  if (soundEnabled) {
+      scoreSound.currentTime = 0;
+      scoreSound.play();
+  }
+}
+
+// Play picture taking sound after win
+
+function playWinningPoseSound() {
+  if (soundEnabled) {
+      winningPose.currentTime = 0;
+      winningPose.play();
+  }
+}
+
+
 function moveBall() {
     ball.x += ball.dx;
     ball.y += ball.dy;
@@ -82,11 +113,13 @@ function moveBall() {
 
     if (ball.x - ballRadius < 0) {
         player2Score++;
+        playScoreSound();
         resetBall();
     }
 
     if (ball.x + ballRadius > canvas.width) {
         player1Score++;
+        playScoreSound();
         resetBall();
     }
 
@@ -210,6 +243,7 @@ document.getElementById("toggle-sound").addEventListener("click", () => {
     soundEnabled = !soundEnabled;
 });
 
+
 function playPaddleHitSound() {
     if (soundEnabled) {
         paddleHitSound.currentTime = 0;
@@ -234,80 +268,91 @@ function moveAI() {
     }
 }
 
+
+
 function displayFireworks(winner) {
-    fireworksCanvas.classList.remove("hidden");
-    const fireworksDuration = 3000; // Duration of fireworks in milliseconds
+  fireworksCanvas.classList.remove("hidden");
+  playWinningPoseSound();
+  
+  const winningPoseDuration = 1000; // Duration of winning pose sound in milliseconds
+  
+  playFireworksSound(winningPoseDuration);
 
-    const particles = [];
-    const colors = ["#FF0000", "#FF7F00", "#FFFF00", "#00FF00", "#0000FF", "#8B00FF"];
+  const fireworksDuration = 3000; // Duration of fireworks in milliseconds
 
-    // Display winner message
-    winnerMessage.textContent = `Player ${winner} Wins!`;
-    winnerMessage.classList.remove("hidden");
+  const particles = [];
+  const colors = ["#FF0000", "#FF7F00", "#FFFF00", "#00FF00", "#0000FF", "#8B00FF"];
 
-    function createParticle(x, y, color) {
-        const particle = {
-            x: x,
-            y: y,
-            dx: (Math.random() - 0.5) * 4,
-            dy: (Math.random() - 0.5) * 4,
-            life: Math.random() * 30 + 30,
-            color: color
-        };
-        particles.push(particle);
-    }
+  // Display winner message
+  winnerMessage.textContent = `Player ${winner} Wins!`;
+  winnerMessage.classList.remove("hidden");
 
-    function updateParticles() {
-        for (let i = particles.length - 1; i >= 0; i--) {
-            const particle = particles[i];
-            particle.x += particle.dx;
-            particle.y += particle.dy;
-            particle.dy += 0.02; // Gravity effect
-            particle.life -= 1;
-            if (particle.life <= 0) {
-                particles.splice(i, 1);
-            }
-        }
-    }
+  function createParticle(x, y, color) {
+      const particle = {
+          x: x,
+          y: y,
+          dx: (Math.random() - 0.5) * 4,
+          dy: (Math.random() - 0.5) * 4,
+          life: Math.random() * 30 + 30,
+          color: color
+      };
+      particles.push(particle);
+  }
 
-    function renderParticles() {
-        fireworksContext.clearRect(0, 0, fireworksCanvas.width, fireworksCanvas.height);
-        for (const particle of particles) {
-            fireworksContext.fillStyle = particle.color;
-            fireworksContext.fillRect(particle.x, particle.y, 3, 3);
-        }
-    }
+  function updateParticles() {
+      for (let i = particles.length - 1; i >= 0; i--) {
+          const particle = particles[i];
+          particle.x += particle.dx;
+          particle.y += particle.dy;
+          particle.dy += 0.02; // Gravity effect
+          particle.life -= 1;
+          if (particle.life <= 0) {
+              particles.splice(i, 1);
+          }
+      }
+  }
 
-    function animateFireworks() {
-        updateParticles();
-        renderParticles();
-        if (particles.length > 0) {
-            requestAnimationFrame(animateFireworks);
-        } else {
-            fireworksCanvas.classList.add("hidden");
-        }
-    }
+  function renderParticles() {
+      fireworksContext.clearRect(0, 0, fireworksCanvas.width, fireworksCanvas.height);
+      for (const particle of particles) {
+          fireworksContext.fillStyle = particle.color;
+          fireworksContext.fillRect(particle.x, particle.y, 3, 3);
+      }
+  }
 
-    function triggerFireworks() {
-        for (let i = 0; i < 100; i++) {
-            const x = Math.random() * fireworksCanvas.width;
-            const y = Math.random() * fireworksCanvas.height;
-            const color = colors[Math.floor(Math.random() * colors.length)];
-            createParticle(x, y, color);
-        }
-        animateFireworks();
-    }
+  function animateFireworks() {
+      updateParticles();
+      renderParticles();
+      if (particles.length > 0) {
+          requestAnimationFrame(animateFireworks);
+      } else {
+          fireworksCanvas.classList.add("hidden");
+      }
+  }
 
-    triggerFireworks();
+  function triggerFireworks() {
+      for (let i = 0; i < 100; i++) {
+          const x = Math.random() * fireworksCanvas.width;
+          const y = Math.random() * fireworksCanvas.height;
+          const color = colors[Math.floor(Math.random() * colors.length)];
+          createParticle(x, y, color);
+      }
+      animateFireworks();
+  }
 
-    // Pause the game and show the winner message
-    gamePaused = true;
-    setTimeout(() => {
-        gamePaused = false;
-        fireworksCanvas.classList.add("hidden");
-        winnerMessage.classList.add("hidden");
-        resetGame();
-    }, fireworksDuration);
+  triggerFireworks();
+
+  // Pause the game and show the winner message
+  gamePaused = true;
+  setTimeout(() => {
+      gamePaused = false;
+      fireworksCanvas.classList.add("hidden");
+      winnerMessage.classList.add("hidden");
+      resetGame();
+  }, fireworksDuration);
 }
+
+
+
 
 gameLoop();
