@@ -9,25 +9,30 @@
 </head>
 <body>
   <!-- Modal -->
-  <div id="targetScoreModal" class="modal hidden">
-    <div class="modal-content">
-      <h2>Enter Target Score</h2>
-      <input type="number" id="targetScoreInput" min="1" max="99">
-      <button id="setTargetScore">Set Score</button>
-    </div>
-  </div>
 
   <div id="smallDeviceMessage" class="hidden">
     <h2>Please use a larger device to play this game.</h2>
   </div>
+
   <div id="scoreboard">
       <span id="player1-score">0</span> - <span id="player2-score">0</span>
   </div>
+
   <div class="container">
       <canvas id="pongCanvas" width="800" height="400"></canvas>
       <canvas id="fireworksCanvas" width="800" height="400" class="hidden"></canvas>
       <div id="winnerMessage" class="hidden"></div>
+      
+       <!-- Modal inside the container -->
+      <div id="targetScoreModal" class="modal hidden">
+        <div class="modal-content">
+          <h2>Enter Target Score</h2>
+          <input type="number" id="targetScoreInput" min="1" max="99" maxlength="2">
+          <button id="setTargetScore">Set Score</button>
+        </div>
+      </div>
   </div>
+
   <div id="menu" class="hidden">
       <h2>Settings</h2>
       <div>

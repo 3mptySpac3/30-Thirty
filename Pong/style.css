@@ -6,18 +6,23 @@ body {
   margin: 0;
   background-color: #000;
   flex-direction: column;
+  overflow: hidden;
 }
 
 #scoreboard {
   font-size: 2rem;
   color: #fff;
   margin-bottom: 20px;
+  margin-right: 200px;
 }
 
 .container {
   display: flex;
   align-items: center;
   position: relative;
+  margin-right: 200px; /* Adjust this value as needed to ensure the menu doesn't overlap */
+  justify-content: center; /* Center content horizontally */
+  box-shadow: rgba(255, 255, 255, 0.2) 0px 20px 40px -7px;
 }
 
 canvas {
@@ -45,8 +50,8 @@ canvas {
 
 #menu {
   position: absolute;
-  top: 50%;
-  right: 10px;
+  top: 55%;
+  right: 35px;
   transform: translateY(-50%);
   display: flex;
   flex-direction: column;
@@ -56,7 +61,7 @@ canvas {
   padding: 20px;
   border: 2px solid #fff;
   border-radius: 10px;
-  box-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+  box-shadow: rgba(255, 255, 255, 0.2) 0px 20px 40px -7px;
   z-index: 10;
 }
 
@@ -94,14 +99,20 @@ canvas {
 
 /* toggle functionality for menu */
 
+#ball-speed {
+  margin-bottom: 20px;
+}
+
 .toggle-container {
   display: flex;
   align-items: center;
   margin: 10px 0;
+  width: 100%;
+  justify-content: space-between;
 }
 
 .toggle-container span {
-  margin-right: 10px;
+  flex: 1;
 }
 
 .switch {
@@ -151,17 +162,17 @@ input:checked + .slider:before {
 
 /* Modal styles */
 .modal {
-  position: fixed;
-  bottom: -100%;
+  position: absolute;
+  top: 50%;
   left: 50%;
-  transform: translateX(-50%);
-  width: 300px;
+  transform: translate(-50%, -50%);
+  width: 300px; /* Adjust the width if necessary */
   background: rgba(0, 0, 0, 0.8);
   color: #fff;
   padding: 20px;
   border-radius: 10px;
-  box-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
-  transition: bottom 0.5s ease;
+  box-shadow: rgba(255, 255, 255, 0.2) 0px 20px 40px -7px;
+    transition: opacity 0.5s ease;
   z-index: 20;
 }
 
@@ -173,7 +184,6 @@ input:checked + .slider:before {
 
 .modal-content h2 {
   margin-bottom: 10px;
-
 }
 
 .modal-content input {
@@ -182,6 +192,7 @@ input:checked + .slider:before {
   margin-bottom: 10px;
   border-radius: 5px;
   border: 1px solid #fff;
+  max-width: 10ch; /* Limit input to 2 characters */
 }
 
 .modal-content button {
@@ -199,7 +210,7 @@ input:checked + .slider:before {
 }
 
 .modal.show {
-  bottom: 45%;
+  opacity: 1;
 }
 
 @media (max-width: 1250px) {
@@ -214,5 +225,16 @@ input:checked + .slider:before {
   #menu,
   #winnerMessage {
     display: none;
+  }
+}
+
+@media (max-width: 1000px) {
+  .container {
+    flex-direction: column;
+  }
+
+  #menu {
+    position: static;
+    margin-top: 20px;
   }
 }
