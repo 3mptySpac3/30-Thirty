@@ -1,0 +1,33 @@
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  margin: 0;
+  background: #000;
+}
+
+.soundwave-container {
+  display: flex;
+  align-items: center;
+}
+
+.soundwave {
+  width: 100px;
+  height: 50px;
+  background: linear-gradient(90deg, transparent, #fff, transparent);
+  position: relative;
+  animation: wave 1s infinite;
+}
+
+@keyframes wave {
+  0% {
+      transform: scaleY(1);
+  }
+  50% {
+      transform: scaleY(1.5);
+  }
+  100% {
+      transform: scaleY(1);
+  }
+}

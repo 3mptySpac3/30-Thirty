@@ -2,7 +2,7 @@ document.addEventListener('DOMContentLoaded', function() {
   const textInput = document.getElementById('text-input');
   const speakButton = document.getElementById('speak-button');
   const voiceSelect = document.getElementById('voice-select');
-  const wavePath = document.querySelector('#sound-wave path');
+  const waveAnimation = document.getElementById('wave-animation');
   let voices = [];
 
   function populateVoices() {
@@ -21,34 +21,12 @@ document.addEventListener('DOMContentLoaded', function() {
       speechSynthesis.onvoiceschanged = populateVoices;
   }
 
-  function getRandomInt(min, max) {
-      return Math.floor(Math.random() * (max - min + 1)) + min;
-  }
-
-  function generateWavePath() {
-      let pathData = 'M 0 5';
-      for (let i = 1; i <= 20; i++) {
-          const x = i * 5;
-          const y = getRandomInt(2, 8);
-          pathData += ` L ${x} ${y}`;
-      }
-      return pathData;
-  }
-
   function startWaveAnimation() {
-      wavePath.style.animationPlayState = 'running';
-      function animateWave() {
-          wavePath.setAttribute('d', generateWavePath());
-          if (speechSynthesis.speaking) {
-              requestAnimationFrame(animateWave);
-          }
-      }
-      animateWave();
+      waveAnimation.style.visibility = 'visible';
   }
 
   function stopWaveAnimation() {
-      wavePath.style.animationPlayState = 'paused';
-      wavePath.setAttribute('d', 'M 0 5 Q 20 0, 40 5 T 100 5');
+      waveAnimation.style.visibility = 'hidden';
   }
 
   speakButton.addEventListener('click', function() {
@@ -65,6 +43,6 @@ document.addEventListener('DOMContentLoaded', function() {
       }
   });
 
-  // Initially pause the animation
+  // Initially hide the animation
   stopWaveAnimation();
 });

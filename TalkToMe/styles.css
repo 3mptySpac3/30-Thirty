@@ -64,35 +64,78 @@ button:hover {
 }
 
 .wave-container {
-  width: 100%;
-  height: 150px;
   display: flex;
   justify-content: center;
   align-items: center;
-}
-
-#wave {
   width: 100%;
-  height: 100%;
+  height: 150px;
+  visibility: hidden;
 }
 
-path {
-  animation: waveAnimation 2s infinite;
+.wave-bar {
+  width: 5px;
+  height: 30px;
+  margin: 0 2px;
+  background: var(--accent);
+  animation: wave 1s infinite;
 }
 
-@keyframes waveAnimation {
-  0% { transform: translateX(0); }
-  100% { transform: translateX(-100%); }
+.wave-bar:nth-child(2) {
+  animation-delay: 0.1s;
+}
+
+.wave-bar:nth-child(3) {
+  animation-delay: 0.2s;
+}
+
+.wave-bar:nth-child(4) {
+  animation-delay: 0.3s;
+}
+
+.wave-bar:nth-child(5) {
+  animation-delay: 0.4s;
+}
+
+.wave-bar:nth-child(6) {
+  animation-delay: 0.5s;
+}
+
+.wave-bar:nth-child(7) {
+  animation-delay: 0.6s;
+}
+
+.wave-bar:nth-child(8) {
+  animation-delay: 0.7s;
+}
+
+.wave-bar:nth-child(9) {
+  animation-delay: 0.8s;
+}
+
+.wave-bar:nth-child(10) {
+  animation-delay: 0.9s;
+}
+
+@keyframes wave {
+  0% {
+    transform: scaleY(1);
+  }
+  50% {
+    transform: scaleY(2);
+  }
+  100% {
+    transform: scaleY(1);
+  }
 }
 
 @media (max-width: 600px) {
   .container {
-      width: 90%;
+    width: 90%;
   }
 }
 
 @media (min-width: 601px) {
   .container {
-      width: 50%;
+    width: 50%;
   }
 }
