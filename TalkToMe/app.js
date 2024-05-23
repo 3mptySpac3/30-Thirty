@@ -21,13 +21,34 @@ document.addEventListener('DOMContentLoaded', function() {
       speechSynthesis.onvoiceschanged = populateVoices;
   }
 
-  function updateWave(dataArray) {
-      const pathData = dataArray.reduce((acc, point, index) => {
-          const x = (index / dataArray.length) * 100;
-          const y = (point / 255) * 10;
-          return acc + ` L ${x} ${y}`;
-      }, 'M 0 5');
-      wavePath.setAttribute('d', pathData);
+  function getRandomInt(min, max) {
+      return Math.floor(Math.random() * (max - min + 1)) + min;
+  }
+
+  function generateWavePath() {
+      let pathData = 'M 0 5';
+      for (let i = 1; i <= 20; i++) {
+          const x = i * 5;
+          const y = getRandomInt(2, 8);
+          pathData += ` L ${x} ${y}`;
+      }
+      return pathData;
+  }
+
+  function startWaveAnimation() {
+      wavePath.style.animationPlayState = 'running';
+      function animateWave() {
+          wavePath.setAttribute('d', generateWavePath());
+          if (speechSynthesis.speaking) {
+              requestAnimationFrame(animateWave);
+          }
+      }
+      animateWave();
+  }
+
+  function stopWaveAnimation() {
+      wavePath.style.animationPlayState = 'paused';
+      wavePath.setAttribute('d', 'M 0 5 Q 20 0, 40 5 T 100 5');
   }
 
   speakButton.addEventListener('click', function() {
@@ -37,34 +58,13 @@ document.addEventListener('DOMContentLoaded', function() {
           const selectedVoiceIndex = voiceSelect.value;
           utterance.voice = voices[selectedVoiceIndex];
 
-          const audioCtx = new (window.AudioContext || window.webkitAudioContext)();
-          const analyser = audioCtx.createAnalyser();
-          analyser.fftSize = 256;
-          const dataArray = new Uint8Array(analyser.frequencyBinCount);
-
-          const source = audioCtx.createMediaElementSource(new Audio());
-          source.connect(analyser);
-          analyser.connect(audioCtx.destination);
-
-          function draw() {
-              requestAnimationFrame(draw);
-              analyser.getByteFrequencyData(dataArray);
-              updateWave(dataArray);
-          }
-
-          utterance.onstart = function() {
-              const source = audioCtx.createMediaStreamSource(audioCtx.createMediaStreamDestination().stream);
-              source.connect(analyser);
-              draw();
-          };
-
-          utterance.onend = function() {
-              wavePath.setAttribute('d', 'M 0 5 Q 20 0, 40 5 T 100 5');
-          };
+          utterance.onstart = startWaveAnimation;
+          utterance.onend = stopWaveAnimation;
 
           speechSynthesis.speak(utterance);
       }
   });
+
+  // Initially pause the animation
+  stopWaveAnimation();
 });
-
-
