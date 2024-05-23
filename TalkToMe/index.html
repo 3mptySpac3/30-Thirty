@@ -8,10 +8,14 @@
 </head>
 <body>
     <div class="container">
-        <h1>Text to Voice Converter</h1>
         <textarea id="text-input" placeholder="Enter text here..."></textarea>
         <select id="voice-select"></select>
         <button id="speak-button">Speak</button>
+    </div>
+    <div class="wave-container">
+        <svg id="sound-wave" viewBox="0 0 100 10" preserveAspectRatio="none">
+            <path fill="none" stroke="var(--accent)" stroke-width="0.5" d="M0 5 Q 20 0, 40 5 T 100 5" />
+        </svg>
     </div>
     <script src="app.js"></script>
 </body>
