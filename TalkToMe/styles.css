@@ -85,9 +85,6 @@ path {
   100% { transform: translateX(-100%); }
 }
 
-
-
-
 @media (max-width: 600px) {
   .container {
       width: 90%;
