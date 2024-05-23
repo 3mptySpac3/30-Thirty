@@ -161,6 +161,25 @@ li {
   margin: 10px 0;
 }
 
+/* Style for the select dropdown scrollbar */
+select::-webkit-scrollbar {
+  width: 12px;
+}
+
+select::-webkit-scrollbar-track {
+  background: var(--background);
+}
+
+select::-webkit-scrollbar-thumb {
+  background-color: var(--accent);
+  border-radius: 10px;
+  border: 3px solid var(--background);
+}
+
+select::-webkit-scrollbar-thumb:hover {
+  background-color: var(--secondary);
+}
+
 .wave-container {
   display: flex;
   justify-content: center;
