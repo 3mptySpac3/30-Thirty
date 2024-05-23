@@ -1,0 +1,101 @@
+:root {
+  --text: #e8eef6;
+  --background: #060a0e;
+  --primary: #98b8d6;
+  --secondary: #7e4333;
+  --accent: #bcbb58;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: center;
+  height: 100vh;
+  margin: 0;
+  background-color: var(--background);
+  color: var(--text);
+}
+
+.container {
+  text-align: center;
+  width: 100%;
+  padding: 20px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  margin-bottom: 20px;
+}
+
+textarea {
+  width: 80%;
+  height: 100px;
+  padding: 10px;
+  font-size: 16px;
+  border-radius: 5px;
+  border: 1px solid var(--secondary);
+  margin-bottom: 20px;
+  background-color: var(--background);
+  color: var(--text);
+}
+
+select {
+  width: 80%;
+  padding: 10px;
+  font-size: 16px;
+  border-radius: 5px;
+  border: 1px solid var(--secondary);
+  margin-bottom: 20px;
+  background-color: var(--background);
+  color: var(--text);
+}
+
+button {
+  padding: 10px 20px;
+  font-size: 16px;
+  border: none;
+  border-radius: 5px;
+  background-color: var(--accent);
+  color: var(--text);
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: var(--secondary);
+}
+
+.wave-container {
+  width: 100%;
+  height: 150px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#wave {
+  width: 100%;
+  height: 100%;
+}
+
+path {
+  animation: waveAnimation 2s infinite;
+}
+
+@keyframes waveAnimation {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-100%); }
+}
+
+
+
+
+@media (max-width: 600px) {
+  .container {
+      width: 90%;
+  }
+}
+
+@media (min-width: 601px) {
+  .container {
+      width: 50%;
+  }
+}
