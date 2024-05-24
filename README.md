@@ -13,6 +13,7 @@ This repository is a collection of 30 diverse projects, each designed to expand 
   - [Clock App](#project2)
   - [ToDo](#project3)
   - [Pong](#project4)
+  - [Text-To-Speach](#project5)
 - [Installation](#-installation)
 
 ---
@@ -65,6 +66,16 @@ __Player 2__
 `up-arrow` and `down-arrow`
 ```
 #
+
+###  <span id="project5"> 🎙️ Text-To-Speach *Project 5* </span>
+
+**Folder:** `TalkToMe`
+
+🔗 The Text to Voice Converter is a web application that allows users to convert written text into spoken words using the Web Speech API. This application provides a simple and intuitive interface for users to enter text, select a voice, and play the speech. Additionally, it features a dynamic sound wave animation that visualizes the speech process and a pause/resume functionality for better control.
+
+#
+
+
 🎥 
 `["Demo"]`
 
