@@ -1,4 +1,12 @@
 
+document.addEventListener('DOMContentLoaded', () => {
+  const backgroundMusic = document.getElementById('background-music');
+  backgroundMusic.play(); // Start playing the music when the document is loaded
+
+});
+
+
+
 const scrollable = document.querySelector('.scrollable');
 const content = document.querySelector('.content');
 const imgSections = [...document.querySelectorAll('.img-section')];
