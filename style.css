@@ -58,7 +58,13 @@ html, body{
   border: none;
   cursor: pointer;
   z-index: 10;
+  display: none;
 }
+
+body.mobile #play-button {
+  display: block;
+}
+
 
 .menu-tog span{
   position: relative;
