@@ -293,14 +293,4 @@ section{
   transform: scale(0.9); /* Scales down the whole container including the border */
 }
 
-#play-button {
-  position: fixed;
-  bottom: 20px;
-  right: 20px;
-  padding: 10px 20px;
-  background: #007bff;
-  color: #fff;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-}
+
