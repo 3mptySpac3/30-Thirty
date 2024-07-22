@@ -1,8 +1,17 @@
 
 document.addEventListener('DOMContentLoaded', () => {
   const backgroundMusic = document.getElementById('background-music');
-  backgroundMusic.play(); // Start playing the music when the document is loaded
 
+  if (isMobile()) {
+    document.getElementById('play-button').style.display = 'block';
+  } else {
+    backgroundMusic.play();
+  }
+
+  setTimeout(() => {
+    window.scrollTo(0, 1);
+  }, 200);
+  scroll();
 });
 
 
@@ -28,6 +37,15 @@ if(!isMobile){
     let clonedSection = section.cloneNode(true);
     content.appendChild(clonedSection);
   })
+}
+
+function playMusic() {
+  const music = document.getElementById('background-music');
+  music.play();
+
+  // Hide the play button after playing the music
+  const playButton = document.getElementById('play-button');
+  playButton.style.display = 'none';
 }
 
 

@@ -46,6 +46,20 @@ html, body{
   mix-blend-mode: difference;
 }
 
+#play-button {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  padding: 10px 20px;
+  font-size: 16px;
+  background-color: #0B0C08;
+  color: #F1F1EA;
+  border: none;
+  cursor: pointer;
+  z-index: 10;
+}
+
 .menu-tog span{
   position: relative;
   width: 100%;
