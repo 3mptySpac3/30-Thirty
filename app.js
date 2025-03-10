@@ -171,3 +171,5 @@ document.addEventListener('DOMContentLoaded', () => {
   }, 200)
   scroll();
 });
+
+// reseting
