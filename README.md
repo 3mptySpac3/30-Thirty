@@ -1,7 +1,6 @@
-
 # 🚀<span id="top"> [Repository of 30 Projects](https://3mptyspac3.github.io/30-Thirty/) </span> 🚀
 
-This repository is a collection of 30 diverse projects, each designed to expand my skills and enhance my understanding of various programming concepts. 
+This repository is a collection of 30 diverse projects, each designed to expand my skills and enhance my understanding of various programming concepts.
 
 ---
 
@@ -14,6 +13,7 @@ This repository is a collection of 30 diverse projects, each designed to expand 
   - [ToDo](#project3)
   - [Pong](#project4)
   - [Text-To-Speach](#project5)
+  - [Godot First Game](#project6)
 - [Installation](#-installation)
 
 ---
@@ -22,9 +22,9 @@ This repository is a collection of 30 diverse projects, each designed to expand 
 
 This repository serves as a personal challenge to develop and document thirty unique projects. It aims not only to showcase my skills but also to provide a platform for others to learn and collaborate.
 
-## 
+##
 
-> 🔻*Click on the image below to view gallery*
+> 🕻*Click on the image below to view gallery*
 >
 > [![30-Thirty](https://github.com/3mptySpac3/30-Thirty/blob/main/Thumbnail.jpg?raw=true)](https://3mptyspac3.github.io/30-Thirty/)
 
@@ -44,7 +44,7 @@ This repository serves as a personal challenge to develop and document thirty un
 
 #
 
-###  <span id="project3"> 📝 ToDo App *Project 3* </span>
+###  <span id="project3"> 🗒️ ToDo App *Project 3* </span>
 
 **Folder:** `ToDo`
 
@@ -67,7 +67,7 @@ __Player 2__
 ```
 #
 
-###  <span id="project5"> 🎙️ Text-To-Speach *Project 5* </span>
+###  <span id="project5"> 🎧 Text-To-Speach *Project 5* </span>
 
 **Folder:** `TalkToMe`
 
@@ -75,15 +75,19 @@ __Player 2__
 
 #
 
+###  <span id="project6"> 🎮 Godot First Game *Project 6* </span>
 
-🎥 
-`["Demo"]`
+**Folder:** `GodotGame1`
+
+🔗 A 2D platformer built with the Godot Engine. Players collect coins, enjoy sound effects and background music, and explore simple yet engaging level designs. This project marks my first steps in learning the Godot Engine.
+
+🎥 [Demo](#)
 
 > 📝 **TODO:** Add more projects here as they are created
 
 ---
 
-## 🔧 Installation
+## 🛠 Installation
 
 Each project may have its own installation requirements. Generally, you can clone this repository using:
 
@@ -99,5 +103,4 @@ cd 'path-to-project'
 <p align="right">
   <a href="#top">Top</a>
 </p>
-
 
